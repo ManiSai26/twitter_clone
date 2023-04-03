@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:twitter_clone/theme/theme.dart';
 
 class AuthField extends StatelessWidget {
-  final controller;
-  const AuthField({super.key, required this.controller});
+  final TextEditingController controller;
+  final String hinttext;
+  const AuthField(
+      {super.key, required this.controller, required this.hinttext});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-        controller: controller,
-        decoration: InputDecoration(
+      controller: controller,
+      decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5),
             borderSide: const BorderSide(
@@ -17,6 +19,17 @@ class AuthField extends StatelessWidget {
               width: 3,
             ),
           ),
-        ));
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(5),
+            borderSide: const BorderSide(
+              color: Pallete.greyColor,
+            ),
+          ),
+          contentPadding: const EdgeInsets.all(22),
+          hintText: hinttext,
+          hintStyle: const TextStyle(
+            fontSize: 18,
+          )),
+    );
   }
 }
